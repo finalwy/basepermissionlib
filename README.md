@@ -1,6 +1,6 @@
 # basepermissionlib 使用: 
 android permission request；
-根目录添加
+根目录添加 **备注：**是在allprojects的repositories添加。
 
 maven {
             url "https://raw.githubusercontent.com/finalwy/basepermissionlib/master" 
