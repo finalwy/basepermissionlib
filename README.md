@@ -1,5 +1,5 @@
 # basepermissionlib 添加方式: 
-android permission request；
+
 根目录添加 **备注：**是在allprojects的repositories添加。
 
 maven {
