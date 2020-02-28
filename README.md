@@ -20,6 +20,7 @@ dependencies {
 只需要调用BasePermission的hasPermission方法,支持多个权限同时传入。
 
 BasePermission.build().hasPermission(this, Manifest.permission.CALL_PHONE);
+
 2.申请权限
 
 如果你在应用启动时需要申请权限，而且并不关注权限的结果，
@@ -27,6 +28,7 @@ BasePermission.build().hasPermission(this, Manifest.permission.CALL_PHONE);
 只需要调用BasePermission的requestPermission方法，支持多个权限传入。
 
  BasePermission.build().requestPermission(MainActivity.this, Manifest.permission.CALL_PHONE);
+ 
 3.需要权限的结果
 
 如果你需要知道申请权限后用户的选择结果，同时去执行自己的方法myVoid(),
@@ -52,6 +54,7 @@ BasePermission.build().hasPermission(this, Manifest.permission.CALL_PHONE);
                         //你的权限被用户拒绝了你怎么办
                     }
                 }).requestPermission();
+		
 
 4.有时用户拒绝了权限，而且禁止了弹出询问，我该怎么办？
 同上，只要在onDismissAsk中，就可以得到被禁止的结果，同时你要注意onDismissAsk默认返回false，
