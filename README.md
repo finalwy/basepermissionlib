@@ -19,7 +19,9 @@ dependencies {
 
 只需要调用BasePermission的hasPermission方法,支持多个权限同时传入。
 
+
 BasePermission.build().hasPermission(this, Manifest.permission.CALL_PHONE);
+
 
 2.申请权限
 
@@ -27,8 +29,10 @@ BasePermission.build().hasPermission(this, Manifest.permission.CALL_PHONE);
 
 只需要调用BasePermission的requestPermission方法，支持多个权限传入。
 
+
  BasePermission.build().requestPermission(MainActivity.this, Manifest.permission.CALL_PHONE);
- 
+
+
 3.需要权限的结果
 
 如果你需要知道申请权限后用户的选择结果，同时去执行自己的方法myVoid(),
@@ -37,7 +41,8 @@ BasePermission.build().hasPermission(this, Manifest.permission.CALL_PHONE);
 
 在onPermissionsDismiss是用户拒绝了权限的反馈。
 
- BasePermission.build()
+ 
+ 	BasePermission.build()
                 .mRequestCode(RC_CODE_CALLPHONE)
                 .mContext(NeedReslutActivity.this)
                 .mPerms(Manifest.permission.CALL_PHONE)
@@ -53,14 +58,15 @@ BasePermission.build().hasPermission(this, Manifest.permission.CALL_PHONE);
                         super.onPermissionsDismiss(requestCode, permissions);
                         //你的权限被用户拒绝了你怎么办
                     }
-                }).requestPermission();
+        }).requestPermission();
 		
 
 4.有时用户拒绝了权限，而且禁止了弹出询问，我该怎么办？
 同上，只要在onDismissAsk中，就可以得到被禁止的结果，同时你要注意onDismissAsk默认返回false，
 如果你自己修改return true，将视为已经处理了禁止结果，将不再回调onPermissionsDismiss这个方法，
 调用openAppDetails方法，可以弹窗引导用户去设置界面设置权限，在onActivityResult中检查结果。
- BasePermission basePermission = BasePermission.build()
+ 	
+	BasePermission basePermission = BasePermission.build()
                 .mRequestCode(RC_CODE_CALLPHONE)
                 .mContext(DismissAskActivity.this)
                 .mPerms(Manifest.permission.CALL_PHONE)
